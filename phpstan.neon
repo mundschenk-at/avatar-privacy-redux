@@ -31,8 +31,7 @@ parameters:
     ignoreErrors:
         # Uses func_get_args()
         - '#^Function apply_filters(_ref_array)? invoked with [34567] parameters, 2 required\.$#'
-        - '#^Parameter \#[1-9] \$[a-z_]+ of function [a-z_]+ expects GdImage, GdImage\|resource given\.$#'
-        - '#^Parameter \#[1-9] \$[a-z_]+ of function [a-z_]+ expects resource, GdImage\|resource given\.$#'
-        - '#^Parameter \#[1-9] \$[a-z_]+ of function [a-z_]+ expects resource, resource\|false given\.$#'
-        - '#^Method Avatar_Privacy(\\[a-zA-Z_]+)+::[a-z_]+\(\) should return GdImage\|resource but returns resource\|false\.$#'
-        - '#^Call to function is_resource\(\) with GdImage\|false will always evaluate to false\.$#'
+        # PHPStan does not know GdImage
+        - '#^Parameter \#[1-9] \$[a-z_]+ of function image[a-z_]+ expects GdImage, GdImage\|resource given\.$#'
+        - '#^Parameter \#[1-9] \$[a-z_]+ of function image[a-z_]+ expects GdImage, GdImage\|false given\.$#'
+        - '#^Method Avatar_Privacy\\Tools\\Images\\PNG::create[a-z_]*\(\) should return GdImage\|resource but returns GdImage\|false\.$#'
